@@ -35,11 +35,11 @@ with open("ciphertext.txt", "r") as f:
 #Decrypt function to decrypt the ciphertext read from file 
 def decrypt(cipherText,inverse,b):
     final_decrypted_output = ""
-    for i in range(0,len(cipherText), 7):  #picking 6 numbers including space to decrypt every block
-        decrypt = str((inverse * (int(cipherText[i:i+6]) - b)) % m).rjust(6,'0')  #formula to decrypt 
+    for i in range(0,len(cipherText), 7):                                          #picking 6 numbers including space to decrypt every block
+        decrypt = str((inverse * (int(cipherText[i:i+6]) - b)) % m).rjust(6,'0')   #formula to decrypt 
         #print(decrypt)
-        for j in range(0,6,2): #each block has 6 digits where 2 digits represent number corresponding to a letter  
-            character = chr(int(decrypt[j:j+2]) + ord('A'))  #add 65 to determine the ascii value obtained and hence the character
+        for j in range(0,6,2):                                                     #each block has 6 digits where 2 digits represent number corresponding to a letter  
+            character = chr(int(decrypt[j:j+2]) + ord('A'))                        #add 65 to determine the ascii value obtained and hence the character
             final_decrypted_output += character 
     print(f"The decrypted message is %s" %final_decrypted_output)
 
