@@ -10,11 +10,11 @@ with open(x, "r+b") as file:
      #file.close()
 uncleanText = open(x).read()
 regex = re.compile('[\\\\@_,!.\'\"#$%^&*()<>?/|}{~:]')
-if(regex.search(uncleanText) != None): #if any of the above characters present in plaintext throw error
+if(regex.search(uncleanText) != None):                                #if any of the above characters present in plaintext throw error
     print("Input contains special characters, all the special characters,lowercase letters and white spaces will be eliminated") 
-plainText = re.sub('[^A-Z]+', '', uncleanText)  #substitute every character with space except A-Z
+plainText = re.sub('[^A-Z]+', '', uncleanText)                        #substitute every character with space except A-Z
 open(x, 'w').write(plainText)
-print(f"The plaintext is %s" %plainText)  #prints the final clean plaintext to console
+print(f"The plaintext is %s" %plainText)                              #prints the final clean plaintext to console
 
 #function to calculate gcd to check if multiplier and mod are co-primes or not 
 def gcd(m,n):
@@ -33,10 +33,10 @@ def encrypt(pt,a,b):
     final_cipher = ""
     #Divide the input/plaintext into 3 character blocks
     for i in range(0,len(pt),3):
-        output = ""       #save converted plaintext(alphabets) to equivalent numbers  
-        for j in range(0,3):  #characters picked in blocks of 3
-            p = (ord(pt[i+j])- ord('A'))  #Subtract from 65 to start assigning values from 0
-            p = str(p).rjust(2,'0')  #Append 0 for numbers from 1 to 9
+        output = ""                                                   #save converted plaintext(alphabets) to equivalent numbers  
+        for j in range(0,3):                                          #characters picked in blocks of 3
+            p = (ord(pt[i+j])- ord('A'))                              #Subtract from 65 to start assigning values from 0
+            p = str(p).rjust(2,'0')                                   #Append 0 for numbers from 1 to 9
             output = output + str(p)
         #print(output)
         #formula to encrypt the plaintext
